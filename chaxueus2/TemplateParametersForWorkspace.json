@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "chaxueus2"
+		},
+		"chaxuamleus_servicePrincipalKey": {
+			"value": ""
+		},
+		"chaxueus2-WorkspaceDefaultSqlServer_connectionString": {
+			"value": ""
+		},
+		"yifsoeus2euap-WorkspaceDefaultSqlServer_connectionString": {
+			"value": ""
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://yifso-akv.vault.azure.net/"
+		},
+		"bing-covid-19-data_sasUri": {
+			"value": ""
+		},
+		"chaxuamleus_properties_typeProperties_subscriptionId": {
+			"value": "051ddeca-1ed6-4d8b-ba6f-1ff561e5f3b3"
+		},
+		"chaxuamleus_properties_typeProperties_resourceGroupName": {
+			"value": "chaxu-test"
+		},
+		"chaxuamleus_properties_typeProperties_servicePrincipalId": {
+			"value": "a82dd51d-9e81-4835-ae78-dae1b3ffae64"
+		},
+		"chaxuamleus_properties_typeProperties_tenant": {
+			"value": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+		},
+		"chaxueus2-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://chaxustorageeus.dfs.core.windows.net"
+		},
+		"yifsoeus2euap-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://yifsoadlsgen2westus2.dfs.core.windows.net"
+		}
+	}
+}
