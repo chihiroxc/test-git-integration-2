@@ -1,10 +1,10 @@
 {
-	"name": "Notebook 1",
+	"name": "HelloWorld",
 	"properties": {
-		"nbformat": 4,
-		"nbformat_minor": 2,
+		"nbformat": 0,
+		"nbformat_minor": 0,
 		"bigDataPool": {
-			"referenceName": "sparkpoolnew3",
+			"referenceName": "interpretML",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -26,16 +26,16 @@
 			},
 			"kernelspec": {
 				"name": "synapse_pyspark",
-				"display_name": "python"
+				"display_name": "Synapse PySpark"
 			},
 			"language_info": {
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/8b3b8a60-1dd0-4824-8770-2ed6a55d8e27/resourceGroups/chaxu-test-rg/providers/Microsoft.ProjectArcadia/workspaces/chaxuwssea/sparkComputes/sparkpoolnew3",
-				"name": "sparkpoolnew3",
+				"id": "/subscriptions/8b3b8a60-1dd0-4824-8770-2ed6a55d8e27/resourceGroups/chaxu-test-rg/providers/Microsoft.Synapse/workspaces/chaxuwssea/bigDataPools/interpretML",
+				"name": "interpretML",
 				"type": "Spark",
-				"endpoint": "https://chaxuwssea.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sparkpoolnew3",
+				"endpoint": "https://chaxuwssea.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/interpretML",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
@@ -48,6 +48,20 @@
 			}
 		},
 		"cells": [
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"Hello world"
+				],
+				"attachments": null
+			},
 			{
 				"cell_type": "code",
 				"metadata": {
@@ -63,10 +77,12 @@
 					"collapsed": true
 				},
 				"source": [
-					"1+1"
+					"import interpret\r\n",
+					"interpret.__version__\r\n",
+					""
 				],
 				"attachments": null,
-				"execution_count": null
+				"execution_count": 1
 			}
 		]
 	}

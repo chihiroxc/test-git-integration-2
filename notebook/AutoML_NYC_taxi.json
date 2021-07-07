@@ -1,10 +1,10 @@
 {
 	"name": "AutoML_NYC_taxi",
 	"properties": {
-		"nbformat": 4,
-		"nbformat_minor": 2,
+		"nbformat": 0,
+		"nbformat_minor": 0,
 		"bigDataPool": {
-			"referenceName": "sparkpoolMedium",
+			"referenceName": "sparkpoolnew3",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -12,21 +12,30 @@
 			"driverCores": 8,
 			"executorMemory": "56g",
 			"executorCores": 8,
-			"numExecutors": 2
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
 		},
 		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1"
+			},
 			"kernelspec": {
 				"name": "synapse_pyspark",
-				"display_name": "Synapse PySpark"
+				"display_name": "python"
 			},
 			"language_info": {
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/051ddeca-1ed6-4d8b-ba6f-1ff561e5f3b3/resourceGroups/chaxu-test/providers/Microsoft.Synapse/workspaces/chaxueus2/bigDataPools/sparkpoolMedium",
-				"name": "sparkpoolMedium",
+				"id": "/subscriptions/8b3b8a60-1dd0-4824-8770-2ed6a55d8e27/resourceGroups/chaxu-test-rg/providers/Microsoft.Synapse/workspaces/chaxuwssea/bigDataPools/sparkpoolnew3",
+				"name": "sparkpoolnew3",
 				"type": "Spark",
-				"endpoint": "https://chaxueus2.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sparkpoolMedium",
+				"endpoint": "https://chaxuwssea.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sparkpoolnew3",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
@@ -34,7 +43,8 @@
 				"sparkVersion": "2.4",
 				"nodeCount": 10,
 				"cores": 8,
-				"memory": 56
+				"memory": 56,
+				"extraHeader": null
 			}
 		},
 		"cells": [

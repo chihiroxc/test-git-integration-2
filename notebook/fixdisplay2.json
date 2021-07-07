@@ -1,5 +1,5 @@
 {
-	"name": "Notebook 3",
+	"name": "fixdisplay2",
 	"properties": {
 		"nbformat": 4,
 		"nbformat_minor": 2,
@@ -24,27 +24,23 @@
 			"synapse_widget": {
 				"version": "0.1",
 				"state": {
-					"ad21f1cb-664b-4ef2-a0d2-41d0e58375d2": {
+					"b5e3cb5c-30f8-4e6e-b007-08fd73a40b89": {
 						"type": "Synapse.DataFrame",
 						"sync_state": {
 							"table": {
 								"rows": [
 									{
-										"number": 8,
-										"word": "bat"
+										"id": "1",
+										"label": "dfwf"
 									},
 									{
-										"number": 64,
-										"word": "mouse"
-									},
-									{
-										"number": -27,
-										"word": "horse"
+										"id": "2",
+										"label": "bar"
 									}
 								],
 								"schema": {
-									"number": "int",
-									"word": "string"
+									"id": "bigint",
+									"label": "string"
 								}
 							},
 							"isSummary": false,
@@ -57,10 +53,10 @@
 									"chartType": "bar",
 									"aggregationType": "sum",
 									"categoryFieldKeys": [
-										"word"
+										"label"
 									],
 									"seriesFieldKeys": [
-										"number"
+										"id"
 									],
 									"isStacked": false
 								}
@@ -74,7 +70,7 @@
 				"display_name": "Synapse PySpark"
 			},
 			"language_info": {
-				"name": "scala"
+				"name": "python"
 			},
 			"a365ComputeOptions": {
 				"id": "/subscriptions/8b3b8a60-1dd0-4824-8770-2ed6a55d8e27/resourceGroups/chaxu-test-rg/providers/Microsoft.Synapse/workspaces/chaxuwssea/bigDataPools/spark2",
@@ -95,87 +91,18 @@
 		"cells": [
 			{
 				"cell_type": "code",
-				"source": [
-					"  val data = Array(1, 2, 3, 4, 5)\r\n",
-					"\r\n",
-					""
-				],
-				"attachments": null,
-				"execution_count": 4
-			},
-			{
-				"cell_type": "code",
 				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					},
-					"collapsed": true
-				},
-				"source": [
-					"  val rdd = sc.parallelize(data)\r\n",
-					""
-				],
-				"attachments": null,
-				"execution_count": 5
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					},
-					"collapsed": true
-				},
-				"source": [
-					"import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, ArrayType};\r\n",
-					"\r\n",
-					"val someData = Seq(\r\n",
-					"  Row(data, \"bat\")\r\n",
-					")\r\n",
-					"\r\n",
-					"val someSchema = List(\r\n",
-					"  StructField(\"number\", ArrayType, true)\r\n",
-					")\r\n",
-					"\r\n",
-					"val someDF = spark.createDataFrame(\r\n",
-					"  spark.sparkContext.parallelize(someData),\r\n",
-					"  StructType(someSchema)\r\n",
-					")"
-				],
-				"attachments": null,
-				"execution_count": 15
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					},
 					"collapsed": false
 				},
 				"source": [
-					"display(someDF)"
+					"df = spark.createDataFrame([(1, \"foo\"), (2, \"bar\"),], [\"id\", \"label\"])\r\n",
+					"df2 = spark.createDataFrame([(1, \"dfwf\"), (3, \"dfje\"),], [\"id\", \"label\"])\r\n",
+					"\r\n",
+					"df3 = df.join(df2, ['id'], how='left')\r\n",
+					"display(df3)"
 				],
 				"attachments": null,
-				"execution_count": 13
+				"execution_count": 1
 			}
 		]
 	}

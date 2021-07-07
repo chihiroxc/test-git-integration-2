@@ -1,5 +1,5 @@
 {
-	"name": "Word_Count",
+	"name": "Word_Count_Copy1",
 	"properties": {
 		"targetBigDataPool": {
 			"referenceName": "sparkpoolnew3",
@@ -8,7 +8,7 @@
 		"requiredSparkVersion": "2.4",
 		"language": "scala",
 		"jobProperties": {
-			"name": "Word_Count",
+			"name": "Word_Count_Copy1",
 			"file": "abfss://sparkjobdefinition@automationtestadlsgen2.dfs.core.windows.net/scala/wordcount/wordcount.jar",
 			"className": "WordCount",
 			"conf": {

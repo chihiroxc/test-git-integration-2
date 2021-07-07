@@ -1,0 +1,435 @@
+{
+	"name": "testDisplay",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "sparkpoolnew3",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1",
+				"state": {
+					"82a52e51-90f1-4cee-9107-3bb5db0d47fd": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"L_PARTKEY": 206887868,
+										"L_SHIPMODE": "AIR",
+										"L_TAX": 0.05,
+										"L_RETURNFLAG": "A",
+										"L_RECEIPTDATE": "1992-12-28",
+										"L_COMMITDATE": "1993-02-24",
+										"L_SHIPINSTRUCT": "TAKE BACK RETURN",
+										"L_COMMENT": "ickly even, ir",
+										"L_LINESTATUS": "F",
+										"L_EXTENDEDPRICE": 18455.2,
+										"L_SUPPKEY": 56887873,
+										"L_SHIPDATE": "1992-12-27",
+										"L_ORDERKEY": 29780327299,
+										"L_DISCOUNT": 0.05,
+										"L_LINENUMBER": 6,
+										"L_QUANTITY": 10
+									},
+									{
+										"L_SHIPMODE": "REG AIR",
+										"L_TAX": 0.06,
+										"L_RETURNFLAG": "R",
+										"L_RECEIPTDATE": "1992-05-25",
+										"L_COMMITDATE": "1992-04-25",
+										"L_SHIPINSTRUCT": "TAKE BACK RETURN",
+										"L_COMMENT": "ly final warhorses wake fu",
+										"L_LINESTATUS": "F",
+										"L_EXTENDEDPRICE": 53004.84,
+										"L_SUPPKEY": 58340946,
+										"L_SHIPDATE": "1992-05-05",
+										"L_ORDERKEY": 29780327300,
+										"L_DISCOUNT": 0.01,
+										"L_LINENUMBER": 1,
+										"L_QUANTITY": 28
+									},
+									{
+										"L_SHIPMODE": "REG AIR",
+										"L_TAX": 0,
+										"L_RETURNFLAG": "R",
+										"L_RECEIPTDATE": "1992-03-24",
+										"L_COMMITDATE": "1992-03-21",
+										"L_SHIPINSTRUCT": "DELIVER IN PERSON",
+										"L_COMMENT": "gular instructions wake against the ac",
+										"L_LINESTATUS": "F",
+										"L_EXTENDEDPRICE": 38466,
+										"L_SUPPKEY": 61247460,
+										"L_SHIPDATE": "1992-02-24",
+										"L_ORDERKEY": 29780327300,
+										"L_DISCOUNT": 0.09,
+										"L_LINENUMBER": 2,
+										"L_QUANTITY": 25
+									},
+									{
+										"L_PARTKEY": 910846598,
+										"L_SHIPMODE": "RAIL",
+										"L_TAX": 0.04,
+										"L_RETURNFLAG": "R",
+										"L_RECEIPTDATE": "1992-07-09",
+										"L_COMMITDATE": "1992-03-30",
+										"L_SHIPINSTRUCT": "DELIVER IN PERSON",
+										"L_COMMENT": " are. blithely id",
+										"L_LINESTATUS": "F",
+										"L_EXTENDEDPRICE": 5996.2,
+										"L_SUPPKEY": 60846617,
+										"L_SHIPDATE": "1992-06-13",
+										"L_ORDERKEY": 29780327300,
+										"L_DISCOUNT": 0.02,
+										"L_LINENUMBER": 3,
+										"L_QUANTITY": 4
+									},
+									{
+										"L_PARTKEY": 598755912,
+										"L_SHIPMODE": "AIR",
+										"L_TAX": 0.06,
+										"L_RETURNFLAG": "R",
+										"L_RECEIPTDATE": "1992-05-02",
+										"L_COMMITDATE": "1992-04-29",
+										"L_SHIPINSTRUCT": "NONE",
+										"L_COMMENT": "ithely even t",
+										"L_LINESTATUS": "F",
+										"L_EXTENDEDPRICE": 13565.86,
+										"L_SUPPKEY": 73755928,
+										"L_SHIPDATE": "1992-04-03",
+										"L_ORDERKEY": 29780327300,
+										"L_DISCOUNT": 0.08,
+										"L_LINENUMBER": 4,
+										"L_QUANTITY": 7
+									},
+									{
+										"L_SHIPMODE": "RAIL",
+										"L_TAX": 0.03,
+										"L_RETURNFLAG": "R",
+										"L_RECEIPTDATE": "1992-04-24",
+										"L_COMMITDATE": "1992-04-02",
+										"L_SHIPINSTRUCT": "NONE",
+										"L_COMMENT": "s across the slyly ironic epi",
+										"L_LINESTATUS": "F",
+										"L_EXTENDEDPRICE": 8881.1,
+										"L_SUPPKEY": 15600753,
+										"L_SHIPDATE": "1992-04-17",
+										"L_ORDERKEY": 29780327300,
+										"L_DISCOUNT": 0.08,
+										"L_LINENUMBER": 5,
+										"L_QUANTITY": 5
+									},
+									{
+										"L_SHIPMODE": "RAIL",
+										"L_TAX": 0.08,
+										"L_RETURNFLAG": "A",
+										"L_RECEIPTDATE": "1992-06-17",
+										"L_COMMITDATE": "1992-03-21",
+										"L_SHIPINSTRUCT": "NONE",
+										"L_COMMENT": ". sometimes final deposits after the car",
+										"L_LINESTATUS": "F",
+										"L_EXTENDEDPRICE": 1936.55,
+										"L_SUPPKEY": 51621883,
+										"L_SHIPDATE": "1992-06-15",
+										"L_ORDERKEY": 29780327300,
+										"L_DISCOUNT": 0,
+										"L_LINENUMBER": 6,
+										"L_QUANTITY": 1
+									},
+									{
+										"L_SHIPMODE": "REG AIR",
+										"L_TAX": 0.06,
+										"L_RETURNFLAG": "R",
+										"L_RECEIPTDATE": "1992-03-28",
+										"L_COMMITDATE": "1992-05-02",
+										"L_SHIPINSTRUCT": "DELIVER IN PERSON",
+										"L_COMMENT": "y final re",
+										"L_LINESTATUS": "F",
+										"L_EXTENDEDPRICE": 23471.39,
+										"L_SUPPKEY": 83783377,
+										"L_SHIPDATE": "1992-02-27",
+										"L_ORDERKEY": 29780327300,
+										"L_DISCOUNT": 0.09,
+										"L_LINENUMBER": 7,
+										"L_QUANTITY": 17
+									},
+									{
+										"L_SHIPMODE": "REG AIR",
+										"L_TAX": 0.02,
+										"L_RETURNFLAG": "A",
+										"L_RECEIPTDATE": "1995-06-13",
+										"L_COMMITDATE": "1995-05-27",
+										"L_SHIPINSTRUCT": "NONE",
+										"L_COMMENT": "ess carefu",
+										"L_LINESTATUS": "F",
+										"L_EXTENDEDPRICE": 1412.54,
+										"L_SUPPKEY": 46815401,
+										"L_SHIPDATE": "1995-05-18",
+										"L_ORDERKEY": 29780327301,
+										"L_DISCOUNT": 0.08,
+										"L_LINENUMBER": 1,
+										"L_QUANTITY": 1
+									},
+									{
+										"L_PARTKEY": 975941957,
+										"L_SHIPMODE": "FOB",
+										"L_TAX": 0.03,
+										"L_RETURNFLAG": "A",
+										"L_RECEIPTDATE": "1995-04-18",
+										"L_COMMITDATE": "1995-04-24",
+										"L_SHIPINSTRUCT": "NONE",
+										"L_COMMENT": "es detect unusu",
+										"L_LINESTATUS": "F",
+										"L_EXTENDEDPRICE": 87757.2,
+										"L_SUPPKEY": 25941976,
+										"L_SHIPDATE": "1995-04-05",
+										"L_ORDERKEY": 29780327301,
+										"L_DISCOUNT": 0.03,
+										"L_LINENUMBER": 2,
+										"L_QUANTITY": 45
+									}
+								],
+								"schema": {
+									"L_ORDERKEY": "decimal",
+									"L_PARTKEY": "decimal",
+									"L_SUPPKEY": "decimal",
+									"L_LINENUMBER": "decimal",
+									"L_QUANTITY": "decimal",
+									"L_EXTENDEDPRICE": "decimal",
+									"L_DISCOUNT": "decimal",
+									"L_TAX": "decimal",
+									"L_RETURNFLAG": "string",
+									"L_LINESTATUS": "string",
+									"L_SHIPDATE": "date",
+									"L_COMMITDATE": "date",
+									"L_RECEIPTDATE": "date",
+									"L_SHIPINSTRUCT": "string",
+									"L_SHIPMODE": "string",
+									"L_COMMENT": "string"
+								}
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "sum",
+									"categoryFieldKeys": [
+										"L_PARTKEY"
+									],
+									"seriesFieldKeys": [
+										"L_ORDERKEY"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					},
+					"fd56ad21-5bb4-4978-b919-7d1c636b7e69": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"L_PARTKEY": 206887868,
+										"L_SHIPMODE": "AIR",
+										"L_TAX": 0.05,
+										"L_RETURNFLAG": "A",
+										"L_RECEIPTDATE": "1992-12-28",
+										"L_COMMITDATE": "1993-02-24",
+										"L_SHIPINSTRUCT": "TAKE BACK RETURN",
+										"L_COMMENT": "ickly even, ir",
+										"L_LINESTATUS": "F",
+										"L_EXTENDEDPRICE": 18455.2,
+										"L_SUPPKEY": 56887873,
+										"L_SHIPDATE": "1992-12-27",
+										"L_ORDERKEY": 29780327299,
+										"L_DISCOUNT": 0.05,
+										"L_LINENUMBER": 6,
+										"L_QUANTITY": 10
+									},
+									{
+										"L_SHIPMODE": "REG AIR",
+										"L_TAX": 0.06,
+										"L_RETURNFLAG": "R",
+										"L_RECEIPTDATE": "1992-05-25",
+										"L_COMMITDATE": "1992-04-25",
+										"L_SHIPINSTRUCT": "TAKE BACK RETURN",
+										"L_COMMENT": "ly final warhorses wake fu",
+										"L_LINESTATUS": "F",
+										"L_EXTENDEDPRICE": 53004.84,
+										"L_SUPPKEY": 58340946,
+										"L_SHIPDATE": "1992-05-05",
+										"L_ORDERKEY": 29780327300,
+										"L_DISCOUNT": 0.01,
+										"L_LINENUMBER": 1,
+										"L_QUANTITY": 28
+									}
+								],
+								"schema": {
+									"L_ORDERKEY": "decimal",
+									"L_PARTKEY": "decimal",
+									"L_SUPPKEY": "decimal",
+									"L_LINENUMBER": "decimal",
+									"L_QUANTITY": "decimal",
+									"L_EXTENDEDPRICE": "decimal",
+									"L_DISCOUNT": "decimal",
+									"L_TAX": "decimal",
+									"L_RETURNFLAG": "string",
+									"L_LINESTATUS": "string",
+									"L_SHIPDATE": "date",
+									"L_COMMITDATE": "date",
+									"L_RECEIPTDATE": "date",
+									"L_SHIPINSTRUCT": "string",
+									"L_SHIPMODE": "string",
+									"L_COMMENT": "string"
+								}
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "sum",
+									"categoryFieldKeys": [
+										"L_PARTKEY"
+									],
+									"seriesFieldKeys": [
+										"L_ORDERKEY"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					}
+				}
+			},
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "scala"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/8b3b8a60-1dd0-4824-8770-2ed6a55d8e27/resourceGroups/chaxu-test-rg/providers/Microsoft.Synapse/workspaces/chaxuwssea/bigDataPools/sparkpoolnew3",
+				"name": "sparkpoolnew3",
+				"type": "Spark",
+				"endpoint": "https://chaxuwssea.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sparkpoolnew3",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 10,
+				"cores": 8,
+				"memory": 56,
+				"extraHeader": null
+			}
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"df = spark.read.load('abfss://chaxufswcus@chaxustoragewcus.dfs.core.windows.net/part-00000-3a810ba2-7720-47fd-91a4-cab7176b114d-c000.snappy-limit1000.parquet/part-00000-ebf360c3-116b-4b63-b565-eab5f4148185-c000.snappy.parquet', format='parquet')\r\n",
+					"display(df.limit(10))"
+				],
+				"attachments": null,
+				"execution_count": 1
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"import com.microsoft.spark.notebook.visualization.display\r\n",
+					"val df = spark.read.parquet(\"abfss://chaxufswcus@chaxustoragewcus.dfs.core.windows.net/part-00000-3a810ba2-7720-47fd-91a4-cab7176b114d-c000.snappy-limit1000.parquet/part-00000-ebf360c3-116b-4b63-b565-eab5f4148185-c000.snappy.parquet\")\r\n",
+					""
+				],
+				"attachments": null,
+				"execution_count": 4
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"display.config(\"test1\")\r\n",
+					"display(df.limit(2))\r\n",
+					"display.execute(\"test1\")"
+				],
+				"attachments": null,
+				"execution_count": 5
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"import com.chaxu.spark.notebook.visualization.display\r\n",
+					""
+				],
+				"attachments": null,
+				"execution_count": 1
+			}
+		]
+	}
+}

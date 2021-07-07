@@ -1,0 +1,11 @@
+{
+	"name": "chaxuKeyVault",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://chaxu-keyvault.vault.azure.net/"
+		}
+	}
+}

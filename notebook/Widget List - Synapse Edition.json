@@ -1,0 +1,1450 @@
+{
+	"name": "Widget List - Synapse Edition",
+	"properties": {
+		"nbformat": 0,
+		"nbformat_minor": 0,
+		"bigDataPool": {
+			"referenceName": "sparkpoolnew3",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1"
+			},
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/8b3b8a60-1dd0-4824-8770-2ed6a55d8e27/resourceGroups/chaxu-test-rg/providers/Microsoft.Synapse/workspaces/chaxuwssea/bigDataPools/sparkpoolnew3",
+				"name": "sparkpoolnew3",
+				"type": "Spark",
+				"endpoint": "https://chaxuwssea.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sparkpoolnew3",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 10,
+				"cores": 8,
+				"memory": 56,
+				"extraHeader": null
+			}
+		},
+		"cells": [
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nbsphinx": "hidden"
+				},
+				"source": [
+					"[Index](Index.ipynb) - [Back](Widget Basics.ipynb) - [Next](Output Widget.ipynb)"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"# Widget List"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"import ipywidgets as widgets\r\n",
+					"from IPython.display import display as ipydisplay\r\n",
+					"widgets."
+				],
+				"attachments": null,
+				"execution_count": 10
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"## Numeric widgets"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"There are many widgets distributed with ipywidgets that are designed to display numeric values.  Widgets exist for displaying integers and floats, both bounded and unbounded.  The integer widgets share a similar naming scheme to their floating point counterparts.  By replacing `Float` with `Int` in the widget name, you can find the Integer equivalent."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### IntSlider  \n",
+					"- The slider is displayed with a specified, initial `value`. Lower and upper bounds are defined by `min` and `max`, and the value can be incremented according to the `step` parameter.\n",
+					"- The slider's label is defined by `description` parameter \n",
+					"- The slider's `orientation` is either 'horizontal' (default) or 'vertical'\n",
+					"- `readout`  displays the current value of the slider next to it. The options are **True** (default) or **False** \n",
+					"    - `readout_format` specifies the format function used to represent slider value. The default is '.2f'\n",
+					"  "
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"intslider = widgets.IntSlider(\n",
+					"    value=7,\n",
+					"    min=0,\n",
+					"    max=10,\n",
+					"    step=1,\n",
+					"    description='Test:',\n",
+					"    disabled=False,\n",
+					"    continuous_update=False,\n",
+					"    orientation='horizontal',\n",
+					"    readout=True,\n",
+					"    readout_format='d'\n",
+					")\n",
+					"ipydisplay(intslider)"
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					""
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"### FloatSlider  "
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.FloatSlider(\n",
+					"    value=7.5,\n",
+					"    min=0,\n",
+					"    max=10.0,\n",
+					"    step=0.1,\n",
+					"    description='Test:',\n",
+					"    disabled=False,\n",
+					"    continuous_update=False,\n",
+					"    orientation='horizontal',\n",
+					"    readout=True,\n",
+					"    readout_format='.1f',\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 3
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"An example of sliders **displayed vertically**."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.FloatSlider(\n",
+					"    value=7.5,\n",
+					"    min=0,\n",
+					"    max=10.0,\n",
+					"    step=0.1,\n",
+					"    description='Test:',\n",
+					"    disabled=False,\n",
+					"    continuous_update=False,\n",
+					"    orientation='vertical',\n",
+					"    readout=True,\n",
+					"    readout_format='.1f',\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 4
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### FloatLogSlider"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"The `FloatLogSlider` has a log scale, which makes it easy to have a slider that covers a wide range of positive magnitudes. The `min` and `max` refer to the minimum and maximum exponents of the `base`, and the `value` refers to the actual value of the slider."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.FloatLogSlider(\n",
+					"    value=10,\n",
+					"    base=10,\n",
+					"    min=-10, # max exponent of base\n",
+					"    max=10, # min exponent of base\n",
+					"    step=0.2, # exponent step\n",
+					"    description='Log Slider'\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 5
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### IntRangeSlider"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.IntRangeSlider(\n",
+					"    value=[5, 7],\n",
+					"    min=0,\n",
+					"    max=10,\n",
+					"    step=1,\n",
+					"    description='Test:',\n",
+					"    disabled=False,\n",
+					"    continuous_update=False,\n",
+					"    orientation='horizontal',\n",
+					"    readout=True,\n",
+					"    readout_format='d',\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 6
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### FloatRangeSlider"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.FloatRangeSlider(\n",
+					"    value=[5, 7.5],\n",
+					"    min=0,\n",
+					"    max=10.0,\n",
+					"    step=0.1,\n",
+					"    description='Test:',\n",
+					"    disabled=False,\n",
+					"    continuous_update=False,\n",
+					"    orientation='horizontal',\n",
+					"    readout=True,\n",
+					"    readout_format='.1f',\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 7
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### IntProgress"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.IntProgress(\n",
+					"    value=7,\n",
+					"    min=0,\n",
+					"    max=10,\n",
+					"    step=1,\n",
+					"    description='Loading:',\n",
+					"    bar_style='', # 'success', 'info', 'warning', 'danger' or ''\n",
+					"    orientation='horizontal'\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 8
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"### FloatProgress"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.FloatProgress(\n",
+					"    value=7.5,\n",
+					"    min=0,\n",
+					"    max=10.0,\n",
+					"    step=0.1,\n",
+					"    description='Loading:',\n",
+					"    bar_style='info',\n",
+					"    orientation='horizontal'\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 9
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"The numerical text boxes that impose some limit on the data (range, integer-only) impose that restriction when the user presses enter.\n",
+					"\n",
+					"### BoundedIntText"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.BoundedIntText(\n",
+					"    value=7,\n",
+					"    min=0,\n",
+					"    max=10,\n",
+					"    step=1,\n",
+					"    description='Text:',\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 10
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"### BoundedFloatText"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.BoundedFloatText(\n",
+					"    value=7.5,\n",
+					"    min=0,\n",
+					"    max=10.0,\n",
+					"    step=0.1,\n",
+					"    description='Text:',\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 11
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### IntText"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.IntText(\n",
+					"    value=7,\n",
+					"    description='Any:',\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 12
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"### FloatText"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.FloatText(\n",
+					"    value=7.5,\n",
+					"    description='Any:',\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 13
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"## Boolean widgets"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"There are three widgets that are designed to display a boolean value."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### ToggleButton"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.ToggleButton(\n",
+					"    value=False,\n",
+					"    description='Click me',\n",
+					"    disabled=False,\n",
+					"    button_style='', # 'success', 'info', 'warning', 'danger' or ''\n",
+					"    tooltip='Description',\n",
+					"    icon='check' # (FontAwesome names without the `fa-` prefix)\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 14
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"### Checkbox  \n",
+					"- `value` specifies the value of the checkbox\n",
+					"- `indent` parameter places an indented checkbox, aligned with other controls. Options are **True** (default) or **False**    \n",
+					""
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.Checkbox(\n",
+					"    value=False,\n",
+					"    description='Check me',\n",
+					"    disabled=False,\n",
+					"    indent=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 15
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### Valid\n",
+					"\n",
+					"The valid widget provides a read-only indicator."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.Valid(\n",
+					"    value=False,\n",
+					"    description='Valid!',\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 16
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"## Selection widgets"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"There are several widgets that can be used to display single selection lists, and two that can be used to select multiple values.  All inherit from the same base class.  You can specify the **enumeration of selectable options by passing a list** (options are either (label, value) pairs, or simply values for which the labels are derived by calling `str`).\n",
+					"\n",
+					"<div class=\"alert alert-info\">\n",
+					"Changes in *ipywidgets 8*:\n",
+					"    \n",
+					"Selection widgets no longer accept a dictionary of options. Pass a list of key-value pairs instead.\n",
+					"</div>"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"### Dropdown"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.Dropdown(\n",
+					"    options=['1', '2', '3'],\n",
+					"    value='2',\n",
+					"    description='Number:',\n",
+					"    disabled=False,\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 17
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"The following is also valid, displaying the words `'One', 'Two', 'Three'` as the dropdown choices but returning the values `1, 2, 3`."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.Dropdown(\n",
+					"    options=[('One', 1), ('Two', 2), ('Three', 3)],\n",
+					"    value=2,\n",
+					"    description='Number:',\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 18
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"### RadioButtons"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.RadioButtons(\n",
+					"    options=['pepperoni', 'pineapple', 'anchovies'],\n",
+					"#    value='pineapple', # Defaults to 'pineapple'\n",
+					"#    layout={'width': 'max-content'}, # If the items' names are long\n",
+					"    description='Pizza topping:',\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 19
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"#### With dynamic layout and very long labels"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.Box(\n",
+					"    [\n",
+					"        widgets.Label(value='Pizza topping with a very long label:'), \n",
+					"        widgets.RadioButtons(\n",
+					"            options=[\n",
+					"                'pepperoni', \n",
+					"                'pineapple', \n",
+					"                'anchovies', \n",
+					"                'and the long name that will fit fine and the long name that will fit fine and the long name that will fit fine '\n",
+					"            ],\n",
+					"            layout={'width': 'max-content'}\n",
+					"        )\n",
+					"    ]\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 20
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"### Select"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.Select(\n",
+					"    options=['Linux', 'Windows', 'OSX'],\n",
+					"    value='OSX',\n",
+					"    # rows=10,\n",
+					"    description='OS:',\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 21
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### SelectionSlider"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.SelectionSlider(\n",
+					"    options=['scrambled', 'sunny side up', 'poached', 'over easy'],\n",
+					"    value='sunny side up',\n",
+					"    description='I like my eggs ...',\n",
+					"    disabled=False,\n",
+					"    continuous_update=False,\n",
+					"    orientation='horizontal',\n",
+					"    readout=True\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 22
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### SelectionRangeSlider\n",
+					"\n",
+					"The value, index, and label keys are 2-tuples of the min and max values selected. The options must be nonempty."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"import datetime\n",
+					"dates = [datetime.date(2015, i, 1) for i in range(1, 13)]\n",
+					"options = [(i.strftime('%b'), i) for i in dates]\n",
+					"ipydisplay(widgets.SelectionRangeSlider(\n",
+					"    options=options,\n",
+					"    index=(0, 11),\n",
+					"    description='Months (2015)',\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 23
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"### ToggleButtons"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.ToggleButtons(\n",
+					"    options=['Slow', 'Regular', 'Fast'],\n",
+					"    description='Speed:',\n",
+					"    disabled=False,\n",
+					"    button_style='', # 'success', 'info', 'warning', 'danger' or ''\n",
+					"    tooltips=['Description of slow', 'Description of regular', 'Description of fast'],\n",
+					"#     icons=['check'] * 3\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 24
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### SelectMultiple\n",
+					"Multiple values can be selected with <kbd>shift</kbd> and/or <kbd>ctrl</kbd> (or <kbd>command</kbd>) pressed and mouse clicks or arrow keys."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.SelectMultiple(\n",
+					"    options=['Apples', 'Oranges', 'Pears'],\n",
+					"    value=['Oranges'],\n",
+					"    #rows=10,\n",
+					"    description='Fruits',\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 25
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"## String widgets"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"There are several widgets that can be used to display a string value.  The `Text`, `Textarea`, and `Combobox` widgets accept input.  The `HTML` and `HTMLMath` widgets display a string as HTML (`HTMLMath` also renders math). The `Label` widget can be used to construct a custom control label."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"### Text"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.Text(\n",
+					"    value='Hello World',\n",
+					"    placeholder='Type something',\n",
+					"    description='String:',\n",
+					"    disabled=False   \n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 26
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### Textarea"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.Textarea(\n",
+					"    value='Hello World',\n",
+					"    placeholder='Type something',\n",
+					"    description='String:',\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 27
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### Combobox"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.Combobox(\n",
+					"    # value='John',\n",
+					"    placeholder='Choose Someone',\n",
+					"    options=['Paul', 'John', 'George', 'Ringo'],\n",
+					"    description='Combobox:',\n",
+					"    ensure_option=True,\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 28
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### Password\n",
+					"\n",
+					"The `Password` widget hides user input on the screen. **This widget is not a secure way to collect sensitive information because:**\n",
+					"\n",
+					"+ The contents of the `Password` widget are transmitted unencrypted.\n",
+					"+ If the widget state is saved in the notebook the contents of the `Password` widget is stored as plain text."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.Password(\n",
+					"    value='password',\n",
+					"    placeholder='Enter password',\n",
+					"    description='Password:',\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 29
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"### Label\n",
+					"\n",
+					"The `Label` widget is useful if you need to build a custom description next to a control using similar styling to the built-in control descriptions."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.HBox([widgets.Label(value=\"The $m$ in $E=mc^2$:\"), widgets.FloatSlider()]))"
+				],
+				"attachments": null,
+				"execution_count": 30
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### HTML"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.HTML(\n",
+					"    value=\"Hello <b>World</b>\",\n",
+					"    placeholder='Some HTML',\n",
+					"    description='Some HTML',\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 31
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### HTML Math"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.HTMLMath(\n",
+					"    value=r\"Some math and <i>HTML</i>: \\(x^2\\) and $$\\frac{x+1}{x-1}$$\",\n",
+					"    placeholder='Some HTML',\n",
+					"    description='Some HTML',\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 32
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Image"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"file = open(\"images/WidgetArch.png\", \"rb\")\n",
+					"image = file.read()\n",
+					"ipydisplay(widgets.Image(\n",
+					"    value=image,\n",
+					"    format='png',\n",
+					"    width=300,\n",
+					"    height=400,\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": 33
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"slideshow": {
+						"slide_type": "slide"
+					}
+				},
+				"source": [
+					"## Button"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"button = widgets.Button(\n",
+					"    description='Click me',\n",
+					"    disabled=False,\n",
+					"    button_style='', # 'success', 'info', 'warning', 'danger' or ''\n",
+					"    tooltip='Click me',\n",
+					"    icon='check' # (FontAwesome names without the `fa-` prefix)\n",
+					")\n",
+					"ipydisplay(button)"
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"The `icon` attribute can be used to define an icon; see the [fontawesome](https://fontawesome.com/icons) page for available icons. \n",
+					"A callback function `foo` can be registered using `button.on_click(foo)`. The function `foo` will be called when the button is clicked with the button instance as its single argument."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Output\n",
+					"\n",
+					"The `Output` widget can capture and display stdout, stderr and [rich output generated by IPython](http://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html#module-IPython.display). For detailed documentation, see the [output widget examples](https://ipywidgets.readthedocs.io/en/latest/examples/Output Widget.html)."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Play (Animation) widget"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"The `Play` widget is useful to perform animations by iterating on a sequence of integers with a certain speed. The value of the slider below is linked to the player."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"play = widgets.Play(\n",
+					"    value=50,\n",
+					"    min=0,\n",
+					"    max=100,\n",
+					"    step=1,\n",
+					"    interval=500,\n",
+					"    description=\"Press play\",\n",
+					"    disabled=False\n",
+					")\n",
+					"slider = widgets.IntSlider()\n",
+					"widgets.jslink((play, 'value'), (slider, 'value'))\n",
+					"ipydisplay(widgets.HBox([play, slider]))"
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Date picker\n",
+					"\n",
+					"The date picker widget works in Chrome, Firefox and IE Edge, but does not currently work in Safari because it does not support the HTML date input field."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.DatePicker(\n",
+					"    description='Pick a Date',\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Color picker"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.ColorPicker(\n",
+					"    concise=False,\n",
+					"    description='Pick a color',\n",
+					"    value='blue',\n",
+					"    disabled=False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## File Upload\n",
+					"\n",
+					"The `FileUpload` allows to upload any type of file(s) into memory in the kernel."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.FileUpload(\n",
+					"    accept='',  # Accepted file extension e.g. '.txt', '.pdf', 'image/*', 'image/*,.pdf'\n",
+					"    multiple=False  # True to accept multiple files upload else False\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"The upload widget exposes a `value` attribute that contains the files uploaded. The value attribute is a tuple with a dictionary for each uploaded file. For instance:\n",
+					"\n",
+					"```python\n",
+					"uploader = widgets.FileUpload()\n",
+					"ipydisplay(uploader)\n",
+					"\n",
+					"# upload something...\n",
+					"\n",
+					"# once a file is uploaded, use the `.value` attribute to retrieve the content:\n",
+					"uploader.value\n",
+					"#=> (\n",
+					"#=>   {\n",
+					"#=>     'name': 'example.txt',\n",
+					"#=>     'type': 'text/plain',\n",
+					"#=>     'size': 36,\n",
+					"#=>     'last_modified': datetime.datetime(2020, 1, 9, 15, 58, 43, 321000, tzinfo=datetime.timezone.utc), \n",
+					"#=>     'content': <memory at 0x10c1b37c8>\n",
+					"#=>   },\n",
+					"#=> )\n",
+					"```\n",
+					"\n",
+					"Entries in the dictionary can be accessed either as items, as one would any dictionary, or as attributes:\n",
+					"\n",
+					"```\n",
+					"uploaded_file = uploader.value[0]\n",
+					"uploaded_file[\"size\"]\n",
+					"#=> 36\n",
+					"uploaded_file.size\n",
+					"#=> 36\n",
+					"```\n",
+					"\n",
+					"The contents of the file uploaded are in the value of the `content` key. They are a [memory view](https://docs.python.org/3/library/stdtypes.html#memory-views):\n",
+					"\n",
+					"```python\n",
+					"uploaded_file.content\n",
+					"#=> <memory at 0x10c1b37c8>\n",
+					"```\n",
+					"\n",
+					"You can extract the content to bytes:\n",
+					"\n",
+					"```python\n",
+					"uploaded_file.content.tobytes()\n",
+					"#=> b'This is the content of example.txt.\\n'\n",
+					"```\n",
+					"\n",
+					"If the file is a text file, you can get the contents as a string by [decoding it](https://docs.python.org/3/library/codecs.html):\n",
+					"\n",
+					"```python\n",
+					"import codecs\n",
+					"codecs.decode(uploaded_file.content, encoding=\"utf-8\")\n",
+					"#=> 'This is the content of example.txt.\\n'\n",
+					"```\n",
+					"\n",
+					"You can save the uploaded file to the filesystem from the kernel:\n",
+					"\n",
+					"```python\n",
+					"with open(\"./saved-output.txt\", \"wb\") as fp:\n",
+					"    fp.write(uploaded_file.content)\n",
+					"```\n",
+					"\n",
+					"To convert the uploaded file into a Pandas dataframe, you can use a [BytesIO object](https://docs.python.org/3/library/io.html#binary-i-o):\n",
+					"\n",
+					"```python\n",
+					"import io\n",
+					"import pandas as pd\n",
+					"pd.read_csv(io.BytesIO(uploaded_file.content))\n",
+					"```\n",
+					"\n",
+					"If the uploaded file is an image, you can visualize it with an [image](#Image) widget:\n",
+					"\n",
+					"```python\n",
+					"ipydisplay(widgets.Image(value=uploaded_file.content.tobytes())\n",
+					"```\n",
+					"\n",
+					"<div class=\"alert alert-info\">\n",
+					"Changes in *ipywidgets 8*:\n",
+					"    \n",
+					"The `FileUpload` changed significantly in ipywidgets 8:\n",
+					"    \n",
+					"- The `.value` traitlet is now a list of dictionaries, rather than a dictionary mapping the uploaded name to the content. To retrieve the original form, use `{f[\"name\"]: f.content.tobytes() for f in uploader.value}`.\n",
+					"- The `.data` traitlet has been removed. To retrieve it, use `[f.content.tobytes() for f in uploader.value]`.\n",
+					"- The `.metadata` traitlet has been removed. To retrieve it, use `[{k: v for k, v in f.items() if k != \"content\"} for f in w.value]`.\n",
+					"</div>\n",
+					"\n",
+					"<div class=\"alert alert-warning\">\n",
+					"Warning: When using the `FileUpload` Widget, uploaded file content might be saved in the notebook if widget state is saved.\n",
+					"</div>"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Controller\n",
+					"\n",
+					"The `Controller` allows a game controller to be used as an input device."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ipydisplay(widgets.Controller(\n",
+					"    index=0,\n",
+					"))"
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Container/Layout widgets\n",
+					"\n",
+					"These widgets are used to hold other widgets, called children. Each has a `children` property that may be set either when the widget is created or later."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### Box"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"items = [widgets.Label(str(i)) for i in range(4)]\n",
+					"ipydisplay(widgets.Box(items))"
+				],
+				"attachments": null,
+				"execution_count": 2
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### HBox"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"items = [widgets.Label(str(i)) for i in range(4)]\n",
+					"ipydisplay(widgets.HBox(items))"
+				],
+				"attachments": null,
+				"execution_count": 3
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### VBox"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"items = [widgets.Label(str(i)) for i in range(4)]\n",
+					"left_box = widgets.VBox([items[0], items[1]])\n",
+					"right_box = widgets.VBox([items[2], items[3]])\n",
+					"ipydisplay(widgets.HBox([left_box, right_box]))"
+				],
+				"attachments": null,
+				"execution_count": 4
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### GridBox\n",
+					"\n",
+					"This box uses the HTML Grid specification to lay out its children in two dimensional grid. The example below lays out the 8 items inside in 3 columns and as many rows as needed to accommodate the items."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"items = [widgets.Label(str(i)) for i in range(8)]\n",
+					"ipydisplay(widgets.GridBox(items, layout=widgets.Layout(grid_template_columns=\"repeat(3, 100px)\")))"
+				],
+				"attachments": null,
+				"execution_count": 5
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### Accordion"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"accordion = widgets.Accordion(children=[widgets.IntSlider(), widgets.Text()], titles=('Slider', 'Text'))\n",
+					"accordion"
+				],
+				"attachments": null,
+				"execution_count": 6
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### Tabs\n",
+					"\n",
+					"In this example the children are set after the tab is created. Titles for the tabs are set in the same way they are for `Accordion`."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"tab_contents = ['P0', 'P1', 'P2', 'P3', 'P4']\n",
+					"children = [widgets.Text(description=name) for name in tab_contents]\n",
+					"tab = widgets.Tab()\n",
+					"tab.children = children\n",
+					"tab.titles = [str(i) for i in range(len(children))]\n",
+					"tab"
+				],
+				"attachments": null,
+				"execution_count": 7
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					""
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### Stacked\n",
+					"\n",
+					"The `Stacked` widget can have multiple children widgets as for `Tab` and `Accordion`, but only shows one at a time depending on the value of ``selected_index``:"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"button = widgets.Button(description='Click here')\n",
+					"slider = widgets.IntSlider()\n",
+					"stacked = widgets.Stacked([button, slider])\n",
+					"stacked  # will show only the button"
+				],
+				"attachments": null,
+				"execution_count": 8
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"This can be used in combination with another selection-based widget to show different widgets depending on the selection:"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"dropdown = widgets.Dropdown(options=['button', 'slider'])\n",
+					"ipydisplay(widgets.jslink((dropdown, 'index'), (stacked, 'selected_index'))\n",
+					"widgets.VBox([dropdown, stacked]))"
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### Accordion,  Tab, and Stacked use `selected_index`, not value\n",
+					"\n",
+					"Unlike the rest of the widgets discussed earlier, the container widgets `Accordion` and `Tab` update their `selected_index` attribute when the user changes which accordion or tab is selected. That means that you can both see what the user is doing *and* programmatically set what the user sees by setting the value of `selected_index`.\n",
+					"\n",
+					"Setting `selected_index = None` closes all of the accordions or deselects all tabs."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"In the cells below try displaying or setting the `selected_index` of the `tab` and/or `accordion`."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"tab.selected_index = 3"
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"accordion.selected_index = None"
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"### Nesting tabs and accordions\n",
+					"\n",
+					"Tabs and accordions can be nested as deeply as you want. If you have a few minutes, try nesting a few accordions or putting an accordion inside a tab or a tab inside an accordion. \n",
+					"\n",
+					"The example below makes a couple of tabs with an accordion children in one of them"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"tab_nest = widgets.Tab()\n",
+					"tab_nest.children = [accordion, accordion]\n",
+					"tab_nest.titles = ('An accordion', 'Copy of the accordion')\n",
+					"tab_nest"
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nbsphinx": "hidden"
+				},
+				"source": [
+					"[Index](Index.ipynb) - [Back](Widget Basics.ipynb) - [Next](Output Widget.ipynb)"
+				],
+				"attachments": null
+			}
+		]
+	}
+}

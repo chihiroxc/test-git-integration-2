@@ -1,0 +1,285 @@
+{
+	"name": "Interpretable Regression Methods",
+	"properties": {
+		"folder": {
+			"name": "chaxu"
+		},
+		"nbformat": 0,
+		"nbformat_minor": 0,
+		"bigDataPool": {
+			"referenceName": "interpretML",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1"
+			},
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/8b3b8a60-1dd0-4824-8770-2ed6a55d8e27/resourceGroups/chaxu-test-rg/providers/Microsoft.Synapse/workspaces/chaxuwssea/bigDataPools/interpretML",
+				"name": "interpretML",
+				"type": "Spark",
+				"endpoint": "https://chaxuwssea.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/interpretML",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 10,
+				"cores": 8,
+				"memory": 56,
+				"extraHeader": null
+			}
+		},
+		"cells": [
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Setup a regression experiment"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"from interpret.provider import InlineProvider\r\n",
+					"from interpret import set_visualize_provider\r\n",
+					"\r\n",
+					"set_visualize_provider(InlineProvider())\r\n",
+					""
+				],
+				"attachments": null,
+				"execution_count": 1
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"import pandas as pd\n",
+					"from sklearn.datasets import load_boston\n",
+					"from sklearn.model_selection import train_test_split\n",
+					"\n",
+					"boston = load_boston()\n",
+					"feature_names = list(boston.feature_names)\n",
+					"df = pd.DataFrame(boston.data, columns=feature_names)\n",
+					"df[\"target\"] = boston.target\n",
+					"# df = df.sample(frac=0.1, random_state=1)\n",
+					"train_cols = df.columns[0:-1]\n",
+					"label = df.columns[-1]\n",
+					"X = df[train_cols]\n",
+					"y = df[label]\n",
+					"\n",
+					"seed = 1\n",
+					"X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=seed)"
+				],
+				"attachments": null,
+				"execution_count": 2
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Explore the dataset"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"from interpret import show\n",
+					"from interpret.data import Marginal\n",
+					"\n",
+					"marginal = Marginal().explain_data(X_train, y_train, name = 'Train Data')\n",
+					"show(marginal)"
+				],
+				"attachments": null,
+				"execution_count": 3
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Train the Explainable Boosting Machine (EBM)"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"from interpret.glassbox import ExplainableBoostingRegressor, LinearRegression, RegressionTree\n",
+					"\n",
+					"ebm = ExplainableBoostingRegressor(random_state=seed, n_jobs=-1)\n",
+					"ebm.fit(X_train, y_train)   #Works on dataframes and numpy arrays"
+				],
+				"attachments": null,
+				"execution_count": 4
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Global Explanations: What the model learned overall"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ebm_global = ebm.explain_global(name='EBM')\n",
+					"show(ebm_global)"
+				],
+				"attachments": null,
+				"execution_count": 5
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Local Explanations: How an individual prediction was made"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"ebm_local = ebm.explain_local(X_test[:5], y_test[:5], name='EBM')\n",
+					"show(ebm_local)"
+				],
+				"attachments": null,
+				"execution_count": 6
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Evaluate EBM performance"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"scrolled": false
+				},
+				"source": [
+					"from interpret import show\n",
+					"from interpret.perf import RegressionPerf\n",
+					"\n",
+					"ebm_perf = RegressionPerf(ebm.predict).explain_perf(X_test, y_test, name='EBM')\n",
+					"show(ebm_perf)"
+				],
+				"attachments": null,
+				"execution_count": 7
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Let's test out a few other Explainable Models"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"from interpret.glassbox import LinearRegression, RegressionTree\n",
+					"\n",
+					"lr = LinearRegression(random_state=seed)\n",
+					"lr.fit(X_train, y_train)\n",
+					"\n",
+					"rt = RegressionTree(random_state=seed)\n",
+					"rt.fit(X_train, y_train)"
+				],
+				"attachments": null,
+				"execution_count": 8
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Compare performance using the Dashboard"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"scrolled": false
+				},
+				"source": [
+					"lr_perf = RegressionPerf(lr.predict).explain_perf(X_test, y_test, name='Linear Regression')\n",
+					"rt_perf = RegressionPerf(rt.predict).explain_perf(X_test, y_test, name='Regression Tree')\n",
+					"\n",
+					"show(lr_perf)\n",
+					"show(rt_perf)\n",
+					"show(ebm_perf)"
+				],
+				"attachments": null,
+				"execution_count": 9
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Glassbox: All of our models have global and local explanations"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"scrolled": false
+				},
+				"source": [
+					"lr_global = lr.explain_global(name='Linear Regression')\n",
+					"rt_global = rt.explain_global(name='Regression Tree')\n",
+					"\n",
+					"show(lr_global)\n",
+					"show(rt_global)\n",
+					"show(ebm_global)"
+				],
+				"attachments": null,
+				"execution_count": 10
+			},
+			{
+				"cell_type": "markdown",
+				"source": [
+					"## Dashboard: look at everything at once"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"# Do everything in one shot with the InterpretML Dashboard by passing a list into show\n",
+					"\n",
+					"show([marginal, lr_global, lr_perf, rt_global, rt_perf, ebm_global, ebm_perf])"
+				],
+				"attachments": null,
+				"execution_count": 11
+			}
+		]
+	}
+}
