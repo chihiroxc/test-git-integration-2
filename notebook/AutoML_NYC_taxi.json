@@ -21,9 +21,6 @@
 		},
 		"metadata": {
 			"saveOutput": true,
-			"synapse_widget": {
-				"version": "0.1"
-			},
 			"kernelspec": {
 				"name": "synapse_pyspark",
 				"display_name": "python"
@@ -44,8 +41,9 @@
 				"nodeCount": 10,
 				"cores": 8,
 				"memory": 56,
-				"extraHeader": null
-			}
+				"automaticScaleJobs": false
+			},
+			"sessionKeepAliveTimeout": 30
 		},
 		"cells": [
 			{
@@ -61,6 +59,8 @@
 					"    from azureml.data.datapath import DataPath\n",
 					"    #from azureml.data.constants import MANAGED_DATASET\n",
 					"    MANAGED_DATASET = 'managed-dataset'\n",
+					"\n",
+					"    #comment\n",
 					"\n",
 					"    datastore = None\n",
 					"    relative_path = None\n",
@@ -215,7 +215,6 @@
 					"        return registered_dataset\n",
 					""
 				],
-				"attachments": null,
 				"execution_count": 1
 			},
 			{
@@ -226,7 +225,6 @@
 					"from azureml.core import Experiment, Workspace, Dataset, Datastore\n",
 					"from azureml.train.automl import AutoMLConfig"
 				],
-				"attachments": null,
 				"execution_count": 2
 			},
 			{
@@ -240,7 +238,6 @@
 					"ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)\n",
 					"experiment = Experiment(ws, experiment_name)"
 				],
-				"attachments": null,
 				"execution_count": 3
 			},
 			{
@@ -252,7 +249,6 @@
 					"dataset = register_spark_dataframe(df, datastore, name = experiment_name + \"-dataset\")\n",
 					"dataset_train, dataset_test = dataset.random_split(percentage = 0.8)"
 				],
-				"attachments": null,
 				"execution_count": 4
 			},
 			{
@@ -267,7 +263,6 @@
 					"                             max_concurrent_iterations = 2,\n",
 					"                             enable_onnx_compatible_models = True)"
 				],
-				"attachments": null,
 				"execution_count": 5
 			},
 			{
@@ -275,7 +270,6 @@
 				"source": [
 					"run = experiment.submit(automl_config)"
 				],
-				"attachments": null,
 				"execution_count": 6
 			},
 			{
@@ -283,7 +277,6 @@
 				"source": [
 					"displayHTML(\"<a href={} target='_blank'>Your experiment in Azure Machine Learning portal: {}</a>\".format(run.get_portal_url(), run.id))"
 				],
-				"attachments": null,
 				"execution_count": 7
 			},
 			{
@@ -291,7 +284,6 @@
 				"source": [
 					"run.wait_for_completion()"
 				],
-				"attachments": null,
 				"execution_count": 8
 			},
 			{
@@ -312,7 +304,6 @@
 					"model = run.register_model(model_name = 'best_model', model_path = 'outputs/model.pkl')\r\n",
 					""
 				],
-				"attachments": null,
 				"execution_count": null
 			}
 		]
