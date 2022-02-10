@@ -1,0 +1,760 @@
+{
+	"name": "demo_lakehouse",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "chaxuspark3",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "213dc431-8cd3-42b0-9432-1dc4f57fc3f0"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1",
+				"state": {
+					"5e487442-670c-47d9-9964-5dedb7b3b926": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"0": "20131231",
+										"1": "10624",
+										"2": "35117",
+										"3": "63879",
+										"4": "64392",
+										"5": "172348",
+										"6": "219532",
+										"7": "40.8124",
+										"8": "-73.9513",
+										"9": "40.8124,-73.9513",
+										"10": "40.7982",
+										"11": "-73.9444",
+										"12": "40.7982,-73.9444",
+										"13": "1",
+										"14": "513",
+										"15": "1.3",
+										"16": "CSH",
+										"17": "7.5",
+										"18": "1.0",
+										"19": "0.5",
+										"20": "0.0",
+										"21": "0.0",
+										"22": "9.0"
+									},
+									{
+										"0": "20131231",
+										"1": "7263",
+										"2": "11597",
+										"3": "61733",
+										"4": "62114",
+										"5": "87083",
+										"6": "137768",
+										"7": "40.7352",
+										"8": "-73.9857",
+										"9": "40.7352,-73.9857",
+										"10": "40.751",
+										"11": "-73.9789",
+										"12": "40.751,-73.9789",
+										"13": "1",
+										"14": "380",
+										"15": "1.3",
+										"16": "CSH",
+										"17": "7.0",
+										"18": "1.0",
+										"19": "0.5",
+										"20": "0.0",
+										"21": "0.0",
+										"22": "8.5"
+									},
+									{
+										"0": "20131231",
+										"1": "1899",
+										"2": "5301",
+										"3": "59488",
+										"4": "59815",
+										"5": "82160",
+										"6": "146431",
+										"7": "40.7699",
+										"8": "-73.9483",
+										"9": "40.7699,-73.9483",
+										"10": "40.763",
+										"11": "-73.962",
+										"12": "40.763,-73.962",
+										"13": "1",
+										"14": "326",
+										"15": "1.0",
+										"16": "CSH",
+										"17": "6.0",
+										"18": "1.0",
+										"19": "0.5",
+										"20": "0.0",
+										"21": "0.0",
+										"22": "7.5"
+									},
+									{
+										"0": "20131231",
+										"1": "9471",
+										"2": "28727",
+										"3": "69093",
+										"4": "69548",
+										"5": "276342",
+										"6": "43408",
+										"7": "40.7507",
+										"8": "-73.9746",
+										"9": "40.7507,-73.9746",
+										"10": "40.7428",
+										"11": "-73.9823",
+										"12": "40.7428,-73.9823",
+										"13": "1",
+										"14": "454",
+										"15": "1.0",
+										"16": "CSH",
+										"17": "7.0",
+										"18": "1.0",
+										"19": "0.5",
+										"20": "0.0",
+										"21": "0.0",
+										"22": "8.5"
+									},
+									{
+										"0": "20131231",
+										"1": "2556",
+										"2": "16124",
+										"3": "51720",
+										"4": "52440",
+										"5": "155260",
+										"6": "211054",
+										"7": "40.7138",
+										"8": "-74.0119",
+										"9": "40.7138,-74.0119",
+										"10": "40.7494",
+										"11": "-73.9694",
+										"12": "40.7494,-73.9694",
+										"13": "1",
+										"14": "720",
+										"15": "6.11",
+										"16": "CSH",
+										"17": "19.5",
+										"18": "0.0",
+										"19": "0.5",
+										"20": "0.0",
+										"21": "0.0",
+										"22": "20.0"
+									},
+									{
+										"0": "20131231",
+										"1": "1433",
+										"2": "33809",
+										"3": "31260",
+										"4": "32100",
+										"5": "263305",
+										"6": "80576",
+										"7": "40.726",
+										"8": "-73.9773",
+										"9": "40.726,-73.9773",
+										"10": "40.749",
+										"11": "-73.9838",
+										"12": "40.749,-73.9838",
+										"13": "1",
+										"14": "840",
+										"15": "2.16",
+										"16": "CSH",
+										"17": "11.5",
+										"18": "0.0",
+										"19": "0.5",
+										"20": "0.0",
+										"21": "0.0",
+										"22": "12.0"
+									},
+									{
+										"0": "20131231",
+										"1": "1486",
+										"2": "7842",
+										"3": "18150",
+										"4": "20112",
+										"5": "26661",
+										"6": "108578",
+										"7": "40.7421",
+										"8": "-74.008",
+										"9": "40.7421,-74.008",
+										"10": "40.757",
+										"11": "-73.8866",
+										"12": "40.757,-73.8866",
+										"13": "1",
+										"14": "1962",
+										"15": "9.2",
+										"16": "CSH",
+										"17": "32.0",
+										"18": "0.5",
+										"19": "0.5",
+										"20": "0.0",
+										"21": "0.0",
+										"22": "33.0"
+									},
+									{
+										"0": "20131231",
+										"1": "7225",
+										"2": "36224",
+										"3": "37020",
+										"4": "38460",
+										"5": "147003",
+										"6": "70493",
+										"7": "40.7697",
+										"8": "-73.8637",
+										"9": "40.7697,-73.8637",
+										"10": "40.6519",
+										"11": "-74.0064",
+										"12": "40.6519,-74.0064",
+										"13": "1",
+										"14": "1440",
+										"15": "14.78",
+										"16": "CSH",
+										"17": "40.5",
+										"18": "0.0",
+										"19": "0.5",
+										"20": "0.0",
+										"21": "0.0",
+										"22": "41.0"
+									},
+									{
+										"0": "20131231",
+										"1": "8726",
+										"2": "35009",
+										"3": "64740",
+										"4": "65700",
+										"5": "230937",
+										"6": "116813",
+										"7": "40.7263",
+										"8": "-74.0022",
+										"9": "40.7263,-74.0022",
+										"10": "40.7555",
+										"11": "-73.9729",
+										"12": "40.7555,-73.9729",
+										"13": "1",
+										"14": "960",
+										"15": "3.25",
+										"16": "CRD",
+										"17": "13.5",
+										"18": "1.0",
+										"19": "0.5",
+										"20": "4.35",
+										"21": "0.0",
+										"22": "19.35"
+									},
+									{
+										"0": "20131231",
+										"1": "573",
+										"2": "30912",
+										"3": "66600",
+										"4": "67260",
+										"5": "225983",
+										"6": "76697",
+										"7": "40.7698",
+										"8": "-73.9822",
+										"9": "40.7698,-73.9822",
+										"10": "40.8166",
+										"11": "-73.9605",
+										"12": "40.8166,-73.9605",
+										"13": "1",
+										"14": "660",
+										"15": "3.92",
+										"16": "CRD",
+										"17": "14.0",
+										"18": "1.0",
+										"19": "0.5",
+										"20": "3.75",
+										"21": "0.0",
+										"22": "-1.0"
+									}
+								],
+								"schema": [
+									{
+										"key": "0",
+										"name": "DateID",
+										"type": "int"
+									},
+									{
+										"key": "1",
+										"name": "MedallionID",
+										"type": "int"
+									},
+									{
+										"key": "2",
+										"name": "HackneyLicenseID",
+										"type": "int"
+									},
+									{
+										"key": "3",
+										"name": "PickupTimeID",
+										"type": "int"
+									},
+									{
+										"key": "4",
+										"name": "DropoffTimeID",
+										"type": "int"
+									},
+									{
+										"key": "5",
+										"name": "PickupGeographyID",
+										"type": "int"
+									},
+									{
+										"key": "6",
+										"name": "DropoffGeographyID",
+										"type": "int"
+									},
+									{
+										"key": "7",
+										"name": "PickupLatitude",
+										"type": "double"
+									},
+									{
+										"key": "8",
+										"name": "PickupLongitude",
+										"type": "double"
+									},
+									{
+										"key": "9",
+										"name": "PickupLatLong",
+										"type": "string"
+									},
+									{
+										"key": "10",
+										"name": "DropoffLatitude",
+										"type": "double"
+									},
+									{
+										"key": "11",
+										"name": "DropoffLongitude",
+										"type": "double"
+									},
+									{
+										"key": "12",
+										"name": "DropoffLatLong",
+										"type": "string"
+									},
+									{
+										"key": "13",
+										"name": "PassengerCount",
+										"type": "int"
+									},
+									{
+										"key": "14",
+										"name": "TripDurationSeconds",
+										"type": "int"
+									},
+									{
+										"key": "15",
+										"name": "TripDistanceMiles",
+										"type": "double"
+									},
+									{
+										"key": "16",
+										"name": "PaymentType",
+										"type": "string"
+									},
+									{
+										"key": "17",
+										"name": "FareAmount",
+										"type": "double"
+									},
+									{
+										"key": "18",
+										"name": "SurchargeAmount",
+										"type": "double"
+									},
+									{
+										"key": "19",
+										"name": "TaxAmount",
+										"type": "double"
+									},
+									{
+										"key": "20",
+										"name": "TipAmount",
+										"type": "double"
+									},
+									{
+										"key": "21",
+										"name": "TollsAmount",
+										"type": "double"
+									},
+									{
+										"key": "22",
+										"name": "TotalAmount",
+										"type": "double"
+									}
+								],
+								"truncated": false
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "sum",
+									"categoryFieldKeys": [
+										"1"
+									],
+									"seriesFieldKeys": [
+										"0"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					}
+				}
+			},
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/051ddeca-1ed6-4d8b-ba6f-1ff561e5f3b3/resourceGroups/chaxu-test-rg/providers/Microsoft.Synapse/workspaces/chaxuwsuks/bigDataPools/chaxuspark3",
+				"name": "chaxuspark3",
+				"type": "Spark",
+				"endpoint": "https://chaxuwsuks.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/chaxuspark3",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 10,
+				"cores": 8,
+				"memory": 56,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"\r\n",
+					"SELECT * FROM lakehouse.myexternalparquettable WHERE TotalAmount <= 0"
+				],
+				"attachments": null,
+				"execution_count": 40
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"\r\n",
+					"UPDATE LakehouseNewYork SET TotalAmount = FareAmount + SurchargeAmount + TaxAmount + TipAmount + TollsAmount WHERE TotalAmount <= 0"
+				],
+				"attachments": null,
+				"execution_count": 73
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"# Read data from CSV and save as delta table\r\n",
+					"\r\n",
+					"df = spark.read.load('abfss://fs01@chaxustorageeus.dfs.core.windows.net/NycTaxiSmall.csv', format='csv'\r\n",
+					"## If header exists uncomment line below\r\n",
+					", header=True, inferSchema=True\r\n",
+					")\r\n",
+					"display(df.limit(10))\r\n",
+					"df.write.format(\"delta\").option(\"path\", \"abfss://fs01@chaxustorageeus.dfs.core.windows.net/synapse/workspaces/chaxuwsuks/warehouse/lakehouse.db/NewYorkDelta/\").saveAsTable(\"newyorkdelta1\")"
+				],
+				"attachments": null,
+				"execution_count": 52
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql \r\n",
+					"CREATE TABLE lakehouse.mydeltatable(id int, name string, birthdate date) USING DELTA\r\n",
+					""
+				],
+				"attachments": null,
+				"execution_count": 59
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"DROP TABLE lakehouse.newyorkdelta1"
+				],
+				"attachments": null,
+				"execution_count": 57
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"CREATE TABLE lakehouse.NewYorkParquet\r\n",
+					"    USING Parquet\r\n",
+					"    LOCATION \"abfss://fs01@chaxustorageeus.dfs.core.windows.net/delta-table/NewYorkDelta\""
+				],
+				"attachments": null,
+				"execution_count": 66
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"CREATE TABLE lakehouse.NewYorkDelta1\r\n",
+					"    USING DELTA\r\n",
+					"    LOCATION \"/delta-table/NewYorkDelta\""
+				],
+				"attachments": null,
+				"execution_count": 62
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"select * from lakehouse.myexternalparquettable"
+				],
+				"attachments": null,
+				"execution_count": 39
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"CREATE TABLE lakehouse.mydeltatable1(id int, name string, birthdate date) USING DELTA\r\n",
+					""
+				],
+				"attachments": null,
+				"execution_count": 64
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "csharp"
+					}
+				},
+				"source": [
+					"%%csharp\r\n",
+					"using Microsoft.Spark.Sql.Types;\r\n",
+					"\r\n",
+					"var data = new List<GenericRow>();\r\n",
+					"\r\n",
+					"data.Add(new GenericRow(new object[] { 1, \"Alice\", new Date(2010, 1, 1)}));\r\n",
+					"data.Add(new GenericRow(new object[] { 2, \"Bob\", new Date(1990, 1, 1)}));\r\n",
+					"\r\n",
+					"var schema = new StructType\r\n",
+					"    (new List<StructField>()\r\n",
+					"        {\r\n",
+					"            new StructField(\"id\", new IntegerType()),\r\n",
+					"            new StructField(\"name\", new StringType()),\r\n",
+					"            new StructField(\"birthdate\", new DateType())\r\n",
+					"        }\r\n",
+					"    );\r\n",
+					"\r\n",
+					"var df = spark.CreateDataFrame(data, schema);\r\n",
+					"df.Write().Mode(SaveMode.Append).InsertInto(\"lakehouse.mydeltatable1\");"
+				],
+				"attachments": null,
+				"execution_count": 67
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"df = spark.read.format('csv').option('inferSchema', 'true').option('header','true').load('abfss://fs01@chaxustorageeus.dfs.core.windows.net/NycTaxiSmall.csv')\r\n",
+					"df.printSchema()\r\n",
+					"df.write.mode('overwrite').format('delta').save('/synapse/workspaces/chaxuwsuks/lakehouse/tables/LakehouseNewYork')\r\n",
+					"\r\n",
+					"spark.sql('DROP TABLE IF EXISTS LakehouseNewYork')\r\n",
+					"spark.sql('CREATE TABLE LakehouseNewYork USING DELTA LOCATION \\'/synapse/workspaces/chaxuwsuks/lakehouse/tables/LakehouseNewYork\\'')"
+				],
+				"attachments": null,
+				"execution_count": 71
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"\r\n",
+					"select * from LakehouseNewYork WHERE totalAmount <= 0"
+				],
+				"attachments": null,
+				"execution_count": 74
+			}
+		]
+	}
+}
