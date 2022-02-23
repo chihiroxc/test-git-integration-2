@@ -1,0 +1,17 @@
+{
+	"name": "CreateLakehouseTable",
+	"properties": {
+		"content": {
+			"query": "BEGIN TRY\n    CREATE EXTERNAL DATA SOURCE lakehouseNewYorkStorage\n    WITH ( location = 'abfss://fs01@chaxustorageeus.dfs.core.windows.net/synapse/workspaces/chaxuwsuks/lakehouse/tables' );\nEND TRY  \nBEGIN CATCH \n    IF ERROR_NUMBER() != 46502 THROW;\nEND CATCH\n\nBEGIN TRY\n    CREATE EXTERNAL FILE FORMAT DeltaLakeFormat WITH ( FORMAT_TYPE = DELTA );\nEND TRY  \nBEGIN CATCH \n    IF ERROR_NUMBER() != 46502 THROW;\nEND CATCH\n\nIF EXISTS (SELECT * FROM sys.external_tables WHERE type_desc = 'USER_TABLE' and name = 'LakehouseNewYork')\nBEGIN\n    DROP EXTERNAL TABLE LakehouseNewYork;\nEND\n\nCREATE EXTERNAL TABLE LakehouseNewYork (\n    [DateID] int,\n\t[MedallionID] int,\n\t[HackneyLicenseID] int,\n\t[PickupTimeID] int,\n\t[DropoffTimeID] int,\n\t[PickupGeographyID] int,\n\t[DropoffGeographyID] int,\n\t[PickupLatitude] float,\n\t[PickupLongitude] float,\n\t[PickupLatLong] nvarchar(4000),\n\t[DropoffLatitude] float,\n\t[DropoffLongitude] float,\n\t[DropoffLatLong] nvarchar(4000),\n\t[PassengerCount] int,\n\t[TripDurationSeconds] int,\n\t[TripDistanceMiles] float,\n\t[PaymentType] nvarchar(4000),\n\t[FareAmount] float,\n\t[SurchargeAmount] float,\n\t[TaxAmount] float,\n\t[TipAmount] float,\n\t[TollsAmount] float,\n\t[TotalAmount] float\n) WITH (\n    LOCATION = 'LakehouseNewYork', \n    data_source = lakehouseNewYorkStorage,\n    FILE_FORMAT = DeltaLakeFormat\n);",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "chaxutest",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
